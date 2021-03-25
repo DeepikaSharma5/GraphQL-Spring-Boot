@@ -1,0 +1,20 @@
+type CustomDetails{
+    id : ID!
+    email : String!
+    country : String!
+    new_cases : Int!
+    total_deaths : Int!
+    total_recovered : Int!
+}
+
+
+type Mutation{
+    createDetails(email:String!, country:String!,new_cases:Int!,total_deaths:Int!,total_recovered:Int!):CustomDetails!
+    deleteDetails(id:Int!):CustomDetails!
+    updateDetails(id:Int!,email:String!, country:String!,new_cases:Int!,total_deaths:Int!,total_recovered:Int!):CustomDetails!
+}
+
+type Query{
+    findDetailsById(id:Int):CustomDetails
+    findCountryById(country:String):CustomDetails
+}
