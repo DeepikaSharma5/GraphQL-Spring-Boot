@@ -5,10 +5,10 @@ import com.hms.covid19dashboard.service.CustomDetailsService;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
-
 
 @Component
 class CustomDetailsQueryResolver implements GraphQLQueryResolver {
@@ -19,7 +19,7 @@ class CustomDetailsQueryResolver implements GraphQLQueryResolver {
         this.customDetailsService = customDetailsService;
     }
 
-    public List<CustomDetails> findAllDetails(){
+    public List<CustomDetails> findAll(){
         return customDetailsService.findAll();
     }
 

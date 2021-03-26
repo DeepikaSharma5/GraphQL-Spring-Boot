@@ -7,14 +7,25 @@ type CustomDetails{
     total_recovered : Int!
 }
 
+schema {
+    query: Query
+    mutation: Mutation
+}
+
 
 type Mutation{
     createDetails(email:String!, country:String!,new_cases:Int!,total_deaths:Int!,total_recovered:Int!):CustomDetails!
-    deleteDetails(id:Int!):CustomDetails!
+    deleteDetails(id:Int!):Boolean
     updateDetails(id:Int!,email:String!, country:String!,new_cases:Int!,total_deaths:Int!,total_recovered:Int!):CustomDetails!
 }
 
+#type Query{
+#    findById(id:Int!):CustomDetails!
+#    findCountryById(country:String!):CustomDetails!
+#}
+
+#Root query for app
 type Query{
-    findDetailsById(id:Int):CustomDetails
-    findCountryById(country:String):CustomDetails
+    findAll:[CustomDetails!]!
+    findById(id:Int!):CustomDetails
 }
