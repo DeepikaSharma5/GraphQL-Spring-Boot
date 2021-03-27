@@ -44,14 +44,16 @@ public class CustomDetailsServiceImpl implements CustomDetailsService{
 
     @Override
     public Boolean deleteDetails(Long id) {
-        customDetailsRepository.findById(id);
+        CustomDetails customDetails = customDetailsRepository
+                .findById(id).orElseThrow(() -> new GraphQLException("Invalid Detail ID : [ "+ id+ " ]"));
+        customDetailsRepository.delete(customDetails);
         return true;
     }
 
     @Override
     public CustomDetails updateDetails(Long id,String email, String country, Integer new_cases,
                                        Integer total_deaths, Integer total_recovered) {
-        CustomDetails customDetails = customDetailsRepository.findById(id).get();
+        CustomDetails customDetails = customDetailsRepository.findById(id).orElseThrow(() -> new GraphQLException("Invalid Detail ID : [ "+ id+ " ]"));
         customDetails.setEmail(email);
         customDetails.setCountry(country);
         customDetails.setNew_cases(new_cases);

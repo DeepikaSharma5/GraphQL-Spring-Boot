@@ -19,11 +19,6 @@ type Mutation{
     updateDetails(id:Int!,email:String!, country:String!,new_cases:Int!,total_deaths:Int!,total_recovered:Int!):CustomDetails!
 }
 
-#type Query{
-#    findById(id:Int!):CustomDetails!
-#    findCountryById(country:String!):CustomDetails!
-#}
-
 #Root query for app
 type Query{
     findAll:[CustomDetails!]!

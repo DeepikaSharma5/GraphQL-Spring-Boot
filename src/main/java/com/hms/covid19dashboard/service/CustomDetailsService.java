@@ -1,7 +1,6 @@
 package com.hms.covid19dashboard.service;
 
 import com.hms.covid19dashboard.entity.CustomDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
